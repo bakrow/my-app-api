@@ -5,7 +5,7 @@ export const generateToken = (
   secret = process.env.JWT_SECRET,
   expiresIn = process.env.JWT_EXPIRES_IN,
 ) => {
-  return jwt.sign(payload, secret, { expiresIn });
+  return jwt.sign(payload, secret, { expiresIn: expiresIn || '1h' });
 };
 
 export const verifyToken = (token, secret = process.env.JWT_SECRET) => {

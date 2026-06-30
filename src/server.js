@@ -6,6 +6,7 @@ import { connectDb, disconnectDb } from "./config/db.js";
 // routes
 import movieRoutes from "./routes/movieRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import watchlistRoutes from "./routes/watchlistRoutes.js";
 
 config(); // Load environment variables from .env file
 connectDb();
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 // API Routes
 app.use("/movies", movieRoutes);
 app.use("/auth", authRoutes);
+app.use("/watchlist", watchlistRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server is running on http://localhost:3000");

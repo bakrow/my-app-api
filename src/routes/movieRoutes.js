@@ -1,14 +1,10 @@
 import express from "express";
+import { getAllMovies, getMovieById } from "../controllers/movieController.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send({ message: "List of movies" });
-});
+router.get("/", getAllMovies);
 
-router.get("/:id", (req, res) => {
-  const movieId = req.params.id;
-  res.send({ message: `Details of movie with ID: ${movieId}` });
-});
+router.get("/:id", getMovieById);
 
 export default router;
